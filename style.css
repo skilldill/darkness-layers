@@ -21,23 +21,6 @@ body {
     transform: translate3d(0px, -30px, 100px) !important;
 }
 
-.layer-stack-1 {
-    transform: translate3d(0px, 300px, -1500px);
-    z-index: 30;
-}
-
-.layer-stack-2 {
-    transform: translate3d(0px, 200px, -1700px);
-    z-index: 20;
-    transition: all .9s;
-}
-
-.layer-stack-3 {
-    transform: translate3d(0px, 100px, -1900px);
-    z-index: 10;
-    transition: all .7s;
-}
-
 .layer-hide {
     transform: translate3d(0px, 1000px, -1500px) !important;
     opacity: 0;
