@@ -12,10 +12,13 @@ body {
     background-color: rgb(67, 49, 83);
     height: 3000px;
     width: 100%;
-    transform: translate3d(0px, -30px, 100px);
     transition: all 1s;
     z-index: 40;
     opacity: 1;
+}
+
+.layer-show {
+    transform: translate3d(0px, -30px, 100px) !important;
 }
 
 .layer-stack-1 {
@@ -36,6 +39,6 @@ body {
 }
 
 .layer-hide {
-    transform: translate3d(0px, 1000px, -1500px);
-    opacity: .5;
+    transform: translate3d(0px, 1000px, -1500px) !important;
+    opacity: 0;
 }

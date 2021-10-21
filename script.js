@@ -1,50 +1,26 @@
-const firstLayer = document.querySelector('#layer-1');
-const secondLayer = document.querySelector('#layer-2');
-const thirdLayer = document.querySelector('#layer-3');
+const layers = document.querySelectorAll('.layer');
 
-firstLayer.addEventListener('click', () => {
-    if (firstLayer.classList.contains('layer-stack-1')) {
-        secondLayer.classList.add('layer-hide');
-        thirdLayer.classList.add('layer-hide');
+function initLayers() {
+    for(let i = 0; i < layers.length; i++) {
+        const layer = layers[i];
 
-        setTimeout(() => firstLayer.classList.remove('layer-stack-1'), 300);
-    } else {
-        firstLayer.classList.add('layer-stack-1');
+        layer.addEventListener('click', () => showLayer(i));
 
-        setTimeout(() => {
-            secondLayer.classList.remove('layer-hide');
-            thirdLayer.classList.remove('layer-hide');
-        }, 300);
+        layer.style.transform = `translate3d(0px, ${700 - (100 * i)}px, -${1500 + (200 * i)}px)`;
+        layer.style.zIndex = 1000 - i;
     }
-})
+}
 
-secondLayer.addEventListener('click', () => {
-    if (secondLayer.classList.contains('layer-stack-2')) {
-        firstLayer.classList.add('layer-hide');
-        thirdLayer.classList.add('layer-hide');
-
-        setTimeout(() => secondLayer.classList.remove('layer-stack-2'), 300);
-    } else {
-        secondLayer.classList.add('layer-stack-2');
-        setTimeout(() => {
-            firstLayer.classList.remove('layer-hide');
-            thirdLayer.classList.remove('layer-hide');
-        }, 300);
+function showLayer(layerIndex) {
+    for(let i = 0; i < layers.length; i++) {
+        const layer = layers[i];
+        
+        if (i === layerIndex) {
+            layer.classList.toggle('layer-show');
+        } else {
+            layer.classList.toggle('layer-hide');
+        }
     }
-})
+}
 
-thirdLayer.addEventListener('click', () => {
-    if (thirdLayer.classList.contains('layer-stack-3')) {
-        secondLayer.classList.add('layer-hide');
-        firstLayer.classList.add('layer-hide');
-
-        setTimeout(() => thirdLayer.classList.remove('layer-stack-3'), 300);
-    } else {
-        thirdLayer.classList.add('layer-stack-3');
-
-        setTimeout(() => {
-            firstLayer.classList.remove('layer-hide');
-            secondLayer.classList.remove('layer-hide');
-        }, 300);
-    }
-})
+initLayers();
